@@ -2,11 +2,19 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/mshtlr/go_first/greetings"
 )
 
 func main() {
-	message := greetings.Hello("Shootky")
+	log.SetPrefix("greetings: ")
+	log.SetFlags(0)
+
+	message, err := greetings.Hello("Gladys")
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	fmt.Println(message)
 }
